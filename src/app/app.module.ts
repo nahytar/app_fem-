@@ -31,6 +31,7 @@ import { MenuButtonComponent } from './components/menu-button/menu-button.compon
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterRedComponent } from './components/register-red/register-red.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { MapComponent } from './components/map/map.component';
 
 const appRoutes: Routes = [
   {
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     MenuButtonComponent,
     ProfileComponent,
-    RegisterRedComponent
+    RegisterRedComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
