@@ -3,16 +3,20 @@
   <div>
     <label> Nombre Completo </label>
     <input formControlName="name" type="text" placeholder="Marcela Fernanda Paz" />  
+
     <label> Correo Electronico </label>
     <input formControlName="emailRegister" type="email" placeholder="marcela@paz.cl" />
-    <label for="rut">RUT</label>
+
+    <!-- <label for="rut">RUT</label>
     <input type="text" id="reactiveRut" placeholder="Ingresa el RUT" [formControl]="registerForm.controls.rut" formatRut>
     <ul [hidden]="registerForm.controls.rut.valid || registerForm.controls.rut.pristine">
       <li *ngIf="registerForm.controls.rut.errors && registerForm.controls.rut.errors.required">Requerido</li>
       <li *ngIf="registerForm.controls.rut.errors && registerForm.controls.rut.errors.invalidRut">Invalido</li>
-    </ul>
+    </ul> -->
+
     <label> Telefono </label>
     <input formControlName="phone" type="number" placeholder="988877999" />  
+
     <label for="login-pass" class="form-label"> Contraseña </label>
     <input formControlName="pass" type="password" placeholder="******" />
   </div>

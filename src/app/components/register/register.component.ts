@@ -16,12 +16,12 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder, 
-    private authService: AuthService, 
-    public snackBar: MatSnackBar, 
-    private router: Router, 
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    public snackBar: MatSnackBar,
+    private router: Router,
     public rv: RutValidator
-  ) { 
+  ) {
     this.createRegisterForm();
   }
 
@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
   onRegister() {
     this.authService.signUp(this.registerForm.value.emailRegister, this.registerForm.value.pass)
     .then(() => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/Home']);
     })
     .catch(() => {
       this.snackBar.open('Error en tu Registro, ¡Intentemoslo otra vez!', null , {

@@ -83,7 +83,9 @@ const appRoutes: Routes = [
     MatExpansionModule,
     MatListModule,
     Ng2Rut,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ReactiveFormsModule,
+
   ],
   providers: [RutValidator, AuthService, DatabaseService],
   bootstrap: [AppComponent]
