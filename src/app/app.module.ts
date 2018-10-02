@@ -1,15 +1,42 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatExpansionModule, MatListModule } from '@angular/material';
 
+// Librerias
+import { Ng2Rut,RutValidator } from 'ng2-rut';
+
+// Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+
+// Servicios
+import { environment } from '../environments/environment';
+import { AuthService } from './service/auth.service';
+import { DatabaseService } from './service/database.service';
+
+// Componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 import { ProfileComponent } from './components/profile/profile.component';
-// import { PuntoSeguroComponent } from './components/punto-seguro/punto-seguro.component';
-// import { PublicServiceComponent } from './components/public-service/public-service.component';
 import { RegisterRedComponent } from './components/register-red/register-red.component';
 
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: LoginComponent
+  }
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,14 +44,30 @@ import { RegisterRedComponent } from './components/register-red/register-red.com
     RegisterComponent,
     MenuButtonComponent,
     ProfileComponent,
-    // PuntoSeguroComponent,
-    // PublicServiceComponent,
     RegisterRedComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, 
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireFunctionsModule,
+    AngularFireMessagingModule,
+    RouterModule,
+    FormsModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatMenuModule,
+    MatExpansionModule,
+    MatListModule,
+    Ng2Rut
   ],
-  providers: [],
+  providers: [RutValidator, AuthService, DatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
