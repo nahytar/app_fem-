@@ -35,6 +35,22 @@ const appRoutes: Routes = [
   {
     path: '',
     component: LoginComponent
+  },
+  {
+    path: 'Registro',
+    component: RegisterComponent,
+  },
+  {
+    path: 'Home',
+    component: MenuButtonComponent
+  },
+  {
+    path: 'Perfil',
+    component: ProfileComponent
+  },
+  {
+    path: 'Red_Apoyo',
+    component: RegisterRedComponent
   }
 ];
 @NgModule({
