@@ -81,6 +81,7 @@ const appRoutes: Routes = [
     MatMenuModule,
     MatExpansionModule,
     MatListModule,
+    ReactiveFormsModule,
     Ng2Rut
   ],
   providers: [RutValidator, AuthService, DatabaseService],
