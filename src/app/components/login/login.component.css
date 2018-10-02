@@ -1,0 +1,39 @@
+form{
+  text-align: center;
+}
+
+img{
+  margin-top: 10%;
+  height: 10vh;
+  background: #19c9be;
+}
+div{
+  margin-top: 5%;
+}
+
+input{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 90%;
+  height: 7vh;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+button{
+  width: 90%;
+  height: 7vh;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #19c9be;
+  border: none;
+  margin-top: 3%
+}
+
+section{
+  text-align: center;
+  margin-top: 5%;
+}

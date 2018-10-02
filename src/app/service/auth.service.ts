@@ -36,6 +36,7 @@ export class AuthService {
     .auth
     .signInWithEmailAndPassword(email, password);
   }
+
   logOut() {
     return this.firebaseAuth.auth
     .signOut();
