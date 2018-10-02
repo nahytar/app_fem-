@@ -8,6 +8,7 @@ import { MenuButtonComponent } from './components/menu-button/menu-button.compon
 import { ProfileComponent } from './components/profile/profile.component';
 import { PuntoSeguroComponent } from './components/punto-seguro/punto-seguro.component';
 import { PublicServiceComponent } from './components/public-service/public-service.component';
+import { RegisterRedComponent } from './components/register-red/register-red.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PublicServiceComponent } from './components/public-service/public-servi
     MenuButtonComponent,
     ProfileComponent,
     PuntoSeguroComponent,
-    PublicServiceComponent
+    PublicServiceComponent,
+    RegisterRedComponent
   ],
   imports: [
     BrowserModule
