@@ -1,8 +1,11 @@
 <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
   <img src="#" alt="perfil">
+  <p>¿Te identificas cómo?:</p>
+  <input type="checkbox" name="female" id="female">Mujer
+  <input type="checkbox" name="male" id="male">Hombre
   <div>
     <label> Nombre Completo </label>
-    <input formControlName="name" type="text" placeholder="Ingresa tu nombre completo" />  
+    <input formControlName="name" type="text" placeholder="Ingresa tu nombre completo" />
 
     <label> Correo Electronico </label>
     <input formControlName="emailRegister" type="email" placeholder="Ingresa tu correo" />
@@ -15,12 +18,12 @@
     </ul> -->
 
     <label> Telefono </label>
-    <input formControlName="phone" type="number" placeholder="Ingresa tu número de telefono" />  
+    <input formControlName="phone" type="number" placeholder="Ingresa tu número de telefono" />
 
     <label for="login-pass" class="form-label"> Contraseña </label>
     <input formControlName="pass" type="password" placeholder="123456" />
   </div>
 
   <button type="submit"> REGISTRARME </button>
-  <button type="button" routerLink= '/Login'> VOLVER </button>
+  <button type="button" routerLink='/Login'> VOLVER </button>
 </form>

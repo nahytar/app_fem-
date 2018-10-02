@@ -1,0 +1,12 @@
+form{
+  text-align: center;
+  padding: 2%;
+}
+
+div{
+  text-align: left;
+}
+div input{
+  width: 90%;
+  font-size: 14px;
+}
