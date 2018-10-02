@@ -30,6 +30,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterRedComponent } from './components/register-red/register-red.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const appRoutes: Routes = [
   {
@@ -81,7 +82,8 @@ const appRoutes: Routes = [
     MatMenuModule,
     MatExpansionModule,
     MatListModule,
-    Ng2Rut
+    Ng2Rut,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [RutValidator, AuthService, DatabaseService],
   bootstrap: [AppComponent]
