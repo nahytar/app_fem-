@@ -15,7 +15,13 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, public snackBar: MatSnackBar, private router: Router, public rv: RutValidator) { 
+  constructor(
+    private formBuilder: FormBuilder, 
+    private authService: AuthService, 
+    public snackBar: MatSnackBar, 
+    private router: Router, 
+    public rv: RutValidator
+  ) { 
     this.createRegisterForm();
   }
 
