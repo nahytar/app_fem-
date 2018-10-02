@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatExpansionModule, MatListModule } from '@angular/material';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import {MatIconModule} from '@angular/material/icon';
 
 // Librerias
 import { Ng2Rut, RutValidator } from 'ng2-rut';
@@ -30,12 +32,15 @@ import { RegisterComponent } from './components/register/register.component';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterRedComponent } from './components/register-red/register-red.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { MapComponent } from './components/map/map.component';
 
 const appRoutes: Routes = [
   {
     path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'Login',
     component: LoginComponent
   },
   {
@@ -84,6 +89,7 @@ const appRoutes: Routes = [
     MatMenuModule,
     MatExpansionModule,
     MatListModule,
+    MatIconModule,
     Ng2Rut,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ReactiveFormsModule,
