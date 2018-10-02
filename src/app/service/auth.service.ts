@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument,  AngularFirestoreCollection } from '@angular/fire/firestore';
-import * as firebase from 'firebase'; 
+import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 
 interface User {
@@ -20,16 +20,16 @@ export class AuthService {
   usersCollection: AngularFirestoreCollection<any>;
 
   constructor(private firebaseAuth: AngularFireAuth, private afAuth: AngularFireAuth,
-    private afs: AngularFirestore) { 
+    private afs: AngularFirestore) {
       this.user = firebaseAuth.authState;
       this.usersCollection = afs.collection<any>('info');
-    }    
-  
+    }
+
   signUp(email: string, password: string) {
     return this.firebaseAuth
     .auth
     .createUserWithEmailAndPassword(email, password);
-  }    
+  }
 
   login(email: string, password: string) {
     return this.firebaseAuth
@@ -48,7 +48,7 @@ export class AuthService {
         const data: User = {
           uid: user.uid,
           email: user.email,
-          displayName: user.displayName, 
+          displayName: user.displayName,
           photoURL: user.photoURL,
           phone: user.phoneNumber
       };
@@ -70,5 +70,5 @@ export class AuthService {
       phone: user.phone
     };
     return userRef.set(data);
-  }    
+  }
 }

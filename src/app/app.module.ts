@@ -7,7 +7,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatExpansionModule, MatListModule } from '@angular/material';
 
 // Librerias
-import { Ng2Rut,RutValidator } from 'ng2-rut';
+import { Ng2Rut, RutValidator } from 'ng2-rut';
 
 // Firebase
 import { AngularFireModule } from '@angular/fire';
@@ -63,7 +63,7 @@ const appRoutes: Routes = [
     RegisterRedComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebaseConfig),
