@@ -6,25 +6,30 @@ import { RutValidator } from 'ng2-rut';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { HttpUserEvent } from '@angular/common/http';
+import { DatabaseService } from '../../service/database.service';
+import { User } from '../../interface/user.interface';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-
-  uid: string;
-  mail: string;
-  // photoURL?: any;
-  displayName?: string;
-  phone: string;
-
-  usersCollection: AngularFirestoreCollection<any>;
-  items: Observable<any[]>;
+  usuario: User = {
+    id: '',
+    name: '',
+    photoUrl: '',
+    phone: '',
+    mail: ''
+  };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,11 +37,12 @@ export class RegisterComponent implements OnInit {
     public snackBar: MatSnackBar,
     private router: Router,
     private afs: AngularFirestore,
+    private dataservice: DatabaseService,
+    private storage: AngularFireStorage,
+    private afAuth: AngularFireAuth,
     public rv: RutValidator
   ) {
     this.createRegisterForm();
-    this.usersCollection = afs.collection<any>('users');
-    this.items = this.usersCollection.valueChanges();
   }
 
   ngOnInit() {
@@ -57,17 +63,17 @@ export class RegisterComponent implements OnInit {
     this.authService.signUp(this.registerForm.value.email, this.registerForm.value.pass)
       .then(() => {
         this.router.navigate(['/Home']);
-        this.usersCollection.add({
-          displayName: this.registerForm.value.nombre,
-          phone: this.registerForm.value.phone,
-          // photoURL: this.registerForm.value.photoURL,
-          mail: this.registerForm.value.email,
-        });
-        console.log(this.registerForm.value);
-        // .catch((err) => {
-        //   console.log(err);
-        // });
-
-      });
-    }
+        this.afAuth.authState.subscribe(user => {
+          if (user) {
+          this.usuario.name = this.registerForm.value.nombre;
+          this.usuario.phone = this.registerForm.value.phone;
+          // this.usuario.photoURL = this.registerForm.value.photoURL;
+          this.usuario.mail = this.registerForm.value.email;
+          this.dataservice.addPublish(this.usuario);
+          console.log(this.usuario);
+        }
+      }
+    );
+  });
+  }
 }
