@@ -9,29 +9,11 @@ declare var H: any;
 })
 export class AppComponent implements OnInit {
   title = 'app-fem';
-  private platform: any;
-
-  @ViewChild("map")
-  public mapElement: ElementRef;
+  public query: string;
 
   public constructor() {
-    this.platform = new H.service.Platform({
-      "app_id": "wPJPKvnkW9RvWEhqFwQf",
-      "app_code": "nOWzrH23UUts9L7nlypBpA"
-    });
+      this.query = "";
   }
   public ngOnInit() { }
-
-  public ngAfterViewInit() {
-    let defaultLayers = this.platform.createDefaultLayers();
-    let map = new H.Map(
-      this.mapElement.nativeElement,
-      defaultLayers.normal.map,
-      {
-        zoom: 10,
-        center: { lat: 37.7397, lng: -121.4252 }
-      }
-    );
-  }
 
 }
