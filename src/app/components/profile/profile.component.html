@@ -1,3 +1,21 @@
-<p>
-  profile works!
-</p>
+<section *ngFor ="let usuario of usuario">
+  <p>
+    {{usuario.name}}
+  </p>
+  <p>
+    {{usuario.phone}}
+  </p>
+  <p>
+    {{usuario.mail}}
+  </p>
+
+  <button routerLink='Red-familiar'>Agregar</button>
+  <p>
+    {{usuario.agenda.nombre}}
+  </p>
+  <p>
+    {{usuario.agenda[contacto]}}
+  </p>
+</section>
+
+

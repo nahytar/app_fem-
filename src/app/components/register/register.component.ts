@@ -24,11 +24,17 @@ import { User } from '../../interface/user.interface';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   usuario: User = {
-    id: '',
+    userid: '',
     name: '',
     photoUrl: '',
     phone: '',
-    mail: ''
+    mail: '',
+    latitud: '',
+    longitud: '',
+    agenda: {
+      nombre: '',
+      contacto: ''
+    }
   };
 
   constructor(
@@ -40,7 +46,7 @@ export class RegisterComponent implements OnInit {
     private dataservice: DatabaseService,
     private storage: AngularFireStorage,
     private afAuth: AngularFireAuth,
-    public rv: RutValidator
+    public rutv: RutValidator
   ) {
     this.createRegisterForm();
   }
@@ -50,7 +56,7 @@ export class RegisterComponent implements OnInit {
 
   createRegisterForm() {
     this.registerForm = this.formBuilder.group({
-      // rut: ['', Validators.compose([Validators.required, rv])],
+      rut: ['', Validators.compose([Validators.required])],
       email: ['', Validators.compose([Validators.required, Validators.email])],
       pass: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       nombre: ['', [Validators.required]],
@@ -69,6 +75,7 @@ export class RegisterComponent implements OnInit {
           this.usuario.phone = this.registerForm.value.phone;
           // this.usuario.photoURL = this.registerForm.value.photoURL;
           this.usuario.mail = this.registerForm.value.email;
+          this.usuario.userid = this.authService.Uid;
           this.dataservice.addPublish(this.usuario);
           console.log(this.usuario);
         }

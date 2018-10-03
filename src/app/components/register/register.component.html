@@ -1,5 +1,4 @@
 <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-  <img src="#" alt="perfil">
   <p>¿Te identificas cómo?:</p>
   <input type="checkbox" name="female" id="female">Mujer
   <input type="checkbox" name="male" id="male">Hombre
@@ -10,9 +9,9 @@
     <label> Correo Electronico </label>
     <input formControlName="email" type="email" placeholder="Ingresa tu correo" />
 
-    <!-- <label for="rut">RUT</label>
-    <input type="text" id="reactiveRut" placeholder="Ingresa el RUT" [formControl]="registerForm.controls.rut" formatRut>
-    <ul [hidden]="registerForm.controls.rut.valid || registerForm.controls.rut.pristine">
+    <label for="rut">RUT</label>
+    <input type="text" placeholder="Ingresa el RUT" formControlName="rut">
+    <!-- <ul [hidden]="registerForm.controls.rut.valid || registerForm.controls.rut.pristine">
       <li *ngIf="registerForm.controls.rut.errors && registerForm.controls.rut.errors.required">Requerido</li>
       <li *ngIf="registerForm.controls.rut.errors && registerForm.controls.rut.errors.invalidRut">Invalido</li>
     </ul> -->
@@ -24,6 +23,10 @@
     <input formControlName="pass" type="password" placeholder="******" />
   </div>
 
+  <div>
+    <img src="#" alt="perfil">
+    <mat-icon>camera</mat-icon>
+  </div>
   <button type="submit"> REGISTRARME </button>
   <button type="button" routerLink='/Login'> VOLVER </button>
 </form>

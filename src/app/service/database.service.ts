@@ -4,7 +4,10 @@ import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+// Interface
 import { User } from '../interface/user.interface';
+import {Red } from '../interface/red';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +18,9 @@ export class DatabaseService {
   user: Observable<User[]>;
   userDoc: AngularFirestoreDocument<User>;
 
+  redCollection: AngularFirestoreCollection<Red>;
+  red: Observable<Red[]>;
+
   constructor( private afs: AngularFirestore, private authService: AuthService) {
   this.usersCollection = afs.collection<User>('users');
   this.user = this.usersCollection.snapshotChanges().pipe(
@@ -24,14 +30,14 @@ export class DatabaseService {
         return { id, ...data };
       }))
     );
+    //  this.redCollection = afs.collection('users').doc().collection('red').valueChanges;
   }
 
   getData() {
     return this.user;
   }
 
-  addPublish(userData: User) {
-    // console.log('se publicó');
-    this.usersCollection.add(userData);
+  addPublish(usuario: User) {
+    this.usersCollection.add(usuario);
   }
 }

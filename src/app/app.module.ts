@@ -60,7 +60,7 @@ const appRoutes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'Red_Apoyo',
+    path: 'Perfil/Red-familiar',
     component: RegisterRedComponent
   }
 ];

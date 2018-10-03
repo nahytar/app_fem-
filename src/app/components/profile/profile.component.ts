@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../interface/user.interface';
+import { DatabaseService } from '../../service/database.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+usuario: any;
+
+  constructor(public database: DatabaseService) { }
 
   ngOnInit() {
+    this.database.getData().subscribe(usuario => {
+      this.usuario = usuario;
+      console.log(this.usuario);
+    });
   }
 
 }

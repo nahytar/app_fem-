@@ -1,3 +1,8 @@
-<p>
-  register-red works!
-</p>
+<button mat-button type="button"  routerLink='/Perfil'>Volver</button>
+  <form (ngSubmit)="addContac()" #formNew="ngForm" > 
+    <div>
+      <input [(ngModel)]="user.agenda.nombre" #nombre="ngModel" type='text' name ="nombre" id="nombre" placeholder="Ingresa nombre contacto">
+      <input [(ngModel)]="user.agenda.contacto" #contacto="ngModel" type='text' name ="nombre" id="contacto" placeholder="Ingresa email contacto">
+    <button mat-button type="submit" >Guardar</button>
+    </div>
+  </form>
