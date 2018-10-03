@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { RutValidator} from 'ng2-rut';
+import { RutValidator } from 'ng2-rut';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -15,14 +17,26 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
+  uid: string;
+  mail: string;
+  // photoURL?: any;
+  displayName?: string;
+  phone: string;
+
+  usersCollection: AngularFirestoreCollection<any>;
+  items: Observable<any[]>;
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     public snackBar: MatSnackBar,
     private router: Router,
+    private afs: AngularFirestore,
     public rv: RutValidator
   ) {
     this.createRegisterForm();
+    this.usersCollection = afs.collection<any>('users');
+    this.items = this.usersCollection.valueChanges();
   }
 
   ngOnInit() {
@@ -31,23 +45,29 @@ export class RegisterComponent implements OnInit {
   createRegisterForm() {
     this.registerForm = this.formBuilder.group({
       // rut: ['', Validators.compose([Validators.required, rv])],
-      emailRegister: ['', Validators.compose([Validators.required, Validators.email])],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
       pass: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-      name: ['', Validators.compose([Validators.required])],
-      phone: ['', Validators.compose([Validators.required, Validators.minLength(9)])],
-      femele: ['', Validators.compose([Validators.requiredTrue])]
+      nombre: ['', [Validators.required]],
+      phone: ['', [Validators.required, Validators.minLength(9)]],
+      femele: ['', [Validators.requiredTrue]]
     });
   }
 
   onRegister() {
-    this.authService.signUp(this.registerForm.value.emailRegister, this.registerForm.value.pass)
-    .then(() => {
-      this.router.navigate(['/Home']);
-    })
-    .catch(() => {
-      this.snackBar.open('Error en tu Registro, ¡Intentemoslo otra vez!', null , {
-        duration: 3000,
+    this.authService.signUp(this.registerForm.value.email, this.registerForm.value.pass)
+      .then(() => {
+        this.router.navigate(['/Home']);
+        this.usersCollection.add({
+          displayName: this.registerForm.value.nombre,
+          phone: this.registerForm.value.phone,
+          // photoURL: this.registerForm.value.photoURL,
+          mail: this.registerForm.value.email,
+        });
+        console.log(this.registerForm.value);
+        // .catch((err) => {
+        //   console.log(err);
+        // });
+
       });
-    });
-  }
+    }
 }
