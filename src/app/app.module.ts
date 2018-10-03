@@ -7,6 +7,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatExpansionModule, MatListModule } from '@angular/material';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {MatIconModule} from '@angular/material/icon';
+import { AsyncPipe } from '../../node_modules/@angular/common';
+
 
 // Librerias
 import { Ng2Rut, RutValidator } from 'ng2-rut';
@@ -24,6 +26,7 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { environment } from '../environments/environment';
 import { AuthService } from './service/auth.service';
 import { DatabaseService } from './service/database.service';
+import { MessagingService } from './service/messaging.service';
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -97,7 +100,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
 
   ],
-  providers: [RutValidator, AuthService, DatabaseService],
+  providers: [RutValidator, AuthService, DatabaseService, MessagingService, AsyncPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
