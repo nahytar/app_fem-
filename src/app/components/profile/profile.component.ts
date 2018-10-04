@@ -19,5 +19,4 @@ usuario: any;
       console.log(this.usuario);
     });
   }
-
 }

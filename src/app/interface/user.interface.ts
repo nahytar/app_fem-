@@ -6,8 +6,6 @@ export interface User {
   mail?: string;
   latitud?: string;
   longitud?: string;
-  agenda?: {
-    nombre: string,
-    contacto: string
-  };
+  nombreContact?: string;
+  contacto?: string;
 }
