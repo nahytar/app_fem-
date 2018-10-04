@@ -1,32 +1,56 @@
 <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-  <p>¿Te identificas cómo?:</p>
+    <img src="../../../assets/img/logo-sinfondo.png" alt="lotus">
+  <section>
+  <h6>¿Cómo te identificas?:</h6>
   <input type="checkbox" name="female" id="female">Mujer
   <input type="checkbox" name="male" id="male">Hombre
   <div>
-    <label> Nombre Completo </label>
-    <input formControlName="nombre" type="text" placeholder="Ingresa tu nombre completo" />
-
-    <label> Correo Electronico </label>
-    <input formControlName="email" type="email" placeholder="Ingresa tu correo" />
-
-    <label for="rut">RUT</label>
-    <input type="text" placeholder="Ingresa el RUT" formControlName="rut">
+    <input formControlName="nombre" type="text" placeholder="NOMBRE COMPLETO" />
+    <input formControlName="email" type="email" placeholder="CORREO" />
+    <input type="text" placeholder="RUT O PASAPORTE" formControlName="rut">
     <!-- <ul [hidden]="registerForm.controls.rut.valid || registerForm.controls.rut.pristine">
       <li *ngIf="registerForm.controls.rut.errors && registerForm.controls.rut.errors.required">Requerido</li>
       <li *ngIf="registerForm.controls.rut.errors && registerForm.controls.rut.errors.invalidRut">Invalido</li>
     </ul> -->
 
-    <label> Telefono </label>
-    <input formControlName="phone" type="number" placeholder="Ingresa tu número de telefono" />
-
-    <label for="login-pass" class="form-label"> Contraseña </label>
-    <input formControlName="pass" type="password" placeholder="******" />
+    <input formControlName="phone" type="number" placeholder="TÉLEFONO" />
+    <input formControlName="pass" type="password" placeholder="CONTRASEÑA" />
   </div>
 
   <div>
-    <img src="#" alt="perfil">
-    <mat-icon>camera</mat-icon>
+    <p>toma una foto tuya</p>
+    <i class="fas fa-camera-retro"></i>
   </div>
-  <button type="submit"> REGISTRARME </button>
-  <button type="button" routerLink='/Login'> VOLVER </button>
+  <button type="button" data-toggle="modal" data-target="#modal"> REGISTRARME </button>
+  <button type="button" routerLink='/Login'>CANCELAR</button>
+</section>
+
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Términos y Condiciones</h5>
+        </div>
+        <div class="modal-body">
+          <p>
+            Sororidapp, surgue de la campaña ”agarrame la mano” impulsada para que cualquier mujer si sienta protegida con otra mujer sin siquiera conocerla.
+            <br>
+            <br> Es por ello que Sororidapp lleva éste concepto a tu celular.
+            <br>
+            <br> Deberes y oblicaciones
+            <br>
+            <br> Debes tratar de ayudar a quien se encuentre en tu radio y que necesite ayuda.
+            <br> Llévala a la una zona segura. Sientan que nunca estaran solas, porque ya no lo estarán más. Ayuda a quien más puedas, así seguiremos siendo más. Pide ayuda cuando sientas que lo necesitas, no lo dudes, es mejor estar alerta a que no estar.
+            <br>
+            <br> Amate y ama. Sororidad para todas.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="submit">Aceptar</button>
+          <p data-dismiss="modal">Cancelar</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </form>

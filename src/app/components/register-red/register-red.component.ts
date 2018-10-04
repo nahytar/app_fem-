@@ -31,8 +31,7 @@ export class RegisterRedComponent implements OnInit {
     agenda: {
       nombre: '',
       contacto: ''
-    }
-  };
+    }  };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,7 +50,7 @@ export class RegisterRedComponent implements OnInit {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.dataservice.addPublish(this.usuario);
-        this.usuario.agenda.nombre = 'holo';
+        this.usuario.agenda.nombre = '';
         this.usuario.agenda.contacto = '';
         this.router.navigate(['/Perfil']);
       }
