@@ -42,7 +42,8 @@ export class DatabaseService {
   }
 
   editContac(usuario: User) {
-    this.usersCollection.ref.doc(usuario.userid).update(usuario);
+    this.userDoc = this.afs.doc(`users/${usuario.userid}`);
+    this.userDoc.update(usuario);
   }
 
 }
