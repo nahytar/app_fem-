@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
 import { DatabaseService } from '../../service/database.service';
 import { User } from '../../interface/user.interface';
+import { Red } from '../../interface/red';
 
 @Component({
   selector: 'app-register-red',
@@ -19,20 +20,13 @@ import { User } from '../../interface/user.interface';
   styleUrls: ['./register-red.component.css']
 })
 export class RegisterRedComponent implements OnInit {
-  registerForm: FormGroup;
-  usuario: User = {
-    userid: '',
-    name: '',
-    photoUrl: '',
-    phone: '',
-    mail: '',
-    latitud: '',
-    longitud: '',
-    nombreContact: '',
-    contacto: ''
-    };
-  edit: User;
-  isEdit: Boolean = false;
+  registerRedForm: FormGroup;
+
+  red: Red = {
+    contac: '',
+    emailContac: '',
+    redId: ''
+  };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,34 +36,28 @@ export class RegisterRedComponent implements OnInit {
     private storage: AngularFireStorage,
     private afAuth: AngularFireAuth,
     private router: Router
-  ) { }
+  ) { this.creatorRegisterRedForm(); }
 
   ngOnInit() {
+  }
+
+  creatorRegisterRedForm() {
+    this.registerRedForm = this.formBuilder.group({
+      emailContac: ['', Validators.compose([Validators.required, Validators.email])],
+      contac: ['', Validators.compose([Validators.required])]
+    });
+    console.log(this.registerRedForm.value);
   }
 
   addContac() {
     this.afAuth.authState.subscribe(user => {
       if (user) {
-        this.usuario.nombreContact = '';
-        this.usuario.contacto = '';
+        this.red.contac = this.registerRedForm.value.contac;
+        this.red.emailContac = this.registerRedForm.value.emailContac;
+        this.red.redId = this.authService.Uid;
         this.router.navigate(['/Perfil']);
-        this.dataservice.editContac(this.usuario);
+        this.dataservice.addAgenda(this.red);
       }
     });
-  }
-
-  editNow(event, usuario: User) {
-    this.isEdit = true;
-    this.edit = usuario;
-  }
-
-  updateEdit(usuario: User) {
-    this.dataservice.editContac(usuario);
-    this.clear();
-  }
-
-  clear() {
-    this.isEdit = false;
-    this.edit = null;
   }
 }

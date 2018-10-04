@@ -1,8 +1,8 @@
 <button mat-button type="button"  routerLink='/Perfil'>Volver</button>
-  <form (ngSubmit)="addContac()" #formNew="ngForm" > 
+  <form (ngSubmit)="addContac()" [formGroup]="registerRedForm"> 
     <div>
-      <input [(ngModel)]="usuario.nombreContac" #nombreContac="ngModel" type='text' name ="nombrecontac" id="nombre" placeholder="Ingresa nombre contacto">
-      <input [(ngModel)]="usuario.contacto" #contacto="ngModel" type='text' name ="contacto" id="contacto" placeholder="Ingresa email contacto">
+        <input formControlName="contac" type="text" placeholder="Nombre contacto" />
+        <input formControlName="emailContac" type="text" placeholder="Email contacto" />
     <button mat-button type="submit" >Guardar</button>
     </div>
   </form>

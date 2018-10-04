@@ -1,21 +1,23 @@
-<section *ngFor ="let usuario of usuario">
-  <p>
-    {{usuario.name}}
+<section >
+   <p>
+    {{item.name}}
   </p>
   <p>
-    {{usuario.phone}}
+    {{item.phone}}
   </p>
   <p>
-    {{usuario.mail}}
+    {{item.mail}}
   </p>
-
+</section>  
   <button routerLink='Red-familiar'>Agregar</button>
+  <div *ngFor = 'let redItem of redItem'>
   <p>
-    {{usuario.nombreContac}}
+    {{redItem.contac}}
   </p>
   <p>
-    {{usuario.contacto}}
+    {{redItem.emailContac}}
   </p>
-</section>
+</div>
+
 
 

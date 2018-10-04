@@ -20,6 +20,7 @@ export class DatabaseService {
 
   redCollection: AngularFirestoreCollection<Red>;
   red: Observable<Red[]>;
+  redDoc: AngularFirestoreDocument<Red>;
 
   constructor( private afs: AngularFirestore, private authService: AuthService) {
   this.usersCollection = afs.collection<User>('users');
@@ -30,20 +31,29 @@ export class DatabaseService {
         return { id, ...data };
       }))
     );
-    //  this.redCollection = afs.collection('users').doc().collection('red').valueChanges;
+  this.redCollection = afs.collection<Red>('red');
+  this.red = this.redCollection.snapshotChanges().pipe(
+    map(actions => actions.map(a => {
+      const data = a.payload.doc.data() as Red;
+      const id = a.payload.doc.id;
+      return { id, ...data };
+    }))
+  );
   }
 
   getData() {
     return this.user;
   }
 
+  getAgenda() {
+    return this.red;
+  }
+
   addPublish(usuario: User) {
     this.usersCollection.add(usuario);
   }
 
-  editContac(usuario: User) {
-    this.userDoc = this.afs.doc(`users/${usuario.userid}`);
-    this.userDoc.update(usuario);
+  addAgenda(red: Red) {
+    this.redCollection.add(red);
   }
-
 }
