@@ -1,34 +1,49 @@
 form{
   text-align: center;
+  background-image: url('../../../assets/img/fondo.jpg');
+  background-position: center;
+  background-size: cover;
+  opacity: 0.88;
+  height: 100vh;
 }
 
 img{
-  margin-top: 10%;
-  height: 10vh;
-  background: #19C9BE;
-}
-div{
-  margin-top: 5%;
+  height: 13vh;
 }
 
 input{
   border-top: none;
   border-left: none;
   border-right: none;
-  width: 90%;
+  width: 80%;
   height: 7vh;
   font-size: 14px;
   line-height: 16px;
+  margin-top: 2%;
+}
+
+h6{
+  color: #FCFCFC;
+  background-color: rgba(68, 68, 68, 0.61);
+  width: 80%;
+  height: 7vh;
+  margin: 1% 10%;
+  font-size: 14px;
+}
+
+div{
+  position: absolute;
+  top: 51%;
 }
 
 button{
-  width: 90%;
+  width: 80%;
   height: 7vh;
   font-size: 14px;
   line-height: 16px;
   text-align: center;
   color: #FFFFFF;
-  background-color: #19c9be;
+  background-color: #B2429D;
   border: none;
   margin-top: 3%
 }
@@ -36,4 +51,16 @@ button{
 section{
   text-align: center;
   margin-top: 5%;
+}
+
+.title{
+  padding: 5%;
+  top: 29%;
+}
+
+h1{
+  font-weight: bolder;
+  font-size: 35px;
+  color: #FCFCFC;
+  margin: 0%;
 }
