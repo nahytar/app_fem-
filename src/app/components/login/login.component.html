@@ -1,17 +1,18 @@
 <form [formGroup]="authForm" *ngIf="!(authService.user | async)">
-    <img src="#" alt="logo">
-    <div class="container-fluid">
+  <div class="title">
+      <h1>SORORORIDAPP</h1>
+      <img src="../../../assets/img/logo-sinfondo.png" alt="logo">
+  </div> 
+
+      <div>
+        <h6>La solidaridad<br> entre mujeres hecha app</h6>
       <input type="email" placeholder=" Email" formControlName="email">
       <input type="password" placeholder=" Contraseña" formControlName="password">
-    </div>
-
-    <section class="container-fluid">
       <button type="button" (click)="onLogin()">
-      Iniciar Sesión
-      </button>
-      <button routerLink="/Registro" type="button">
-        Regístrate
-      </button>
-    </section>
-
+          ENTRAR
+          </button>
+          <button routerLink="/Registro" type="button">
+            REGISTRARTE
+          </button>
+    </div>
   </form>
