@@ -29,10 +29,6 @@ export class RegisterComponent implements OnInit {
     photoUrl: '',
     phone: '',
     mail: '',
-    latitud: '',
-    longitud: '',
-    nombreContact: '',
-    contacto: ''
   };
 
   constructor(

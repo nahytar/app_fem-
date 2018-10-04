@@ -1,8 +1,13 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
-
+import { AuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Coordenadas } from '../../interface/coordenadas';
+import { DatabaseService } from '../../service/database.service';
 
 declare var H: any;
-
 
 @Component({
   selector: 'app-map',
@@ -10,7 +15,15 @@ declare var H: any;
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  @ViewChild("map")
+
+  // Coleccion de coordenadas
+  coordenadas: Coordenadas = {
+    userid: '',
+    latitud: '',
+    longitud: ''
+  };
+
+  @ViewChild('map')
   public mapElement: ElementRef;
   search: any;
 
@@ -40,12 +53,19 @@ export class MapComponent implements OnInit {
   // lat: any;
   // lng: any;
 
-  public constructor() { }
+  public constructor(
+    private authService: AuthService,
+    private router: Router,
+    private afs: AngularFirestore,
+    private dataservice: DatabaseService,
+    private storage: AngularFireStorage,
+    private afAuth: AngularFireAuth
+  ) { }
 
   public ngOnInit() {
     this.platform = new H.service.Platform({
-      "app_id": this.appId,
-      "app_code": this.appCode
+      'app_id': this.appId,
+      'app_code': this.appCode
     });
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -59,7 +79,7 @@ export class MapComponent implements OnInit {
   }
 
   showPosition() {
-    let defaultLayers = this.platform.createDefaultLayers();
+    const defaultLayers = this.platform.createDefaultLayers();
     this.map = new H.Map(
       this.mapElement.nativeElement,
       defaultLayers.normal.map,
@@ -68,16 +88,16 @@ export class MapComponent implements OnInit {
         center: { lat: this.lat, lng: this.lng }
       }
     );
-    this.displayUserMarker()
-    let behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(this.map));
+    this.displayUserMarker();
+    const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(this.map));
     this.ui = H.ui.UI.createDefault(this.map, defaultLayers);
-  };
+  }
 
   public places(query: string) {
     this.map.removeObjects(this.map.getObjects());
-    this.search.request({ "q": query, "at": this.lat + "," + this.lng }, {}, data => {
+    this.search.request({ 'q': query, 'at': this.lat + ',' + this.lng }, {}, data => {
       for (let i = 0; i < data.results.items.length; i++) {
-        this.dropMarker({ "lat": data.results.items[i].position[0], "lng": data.results.items[i].position[1] }, data.results.items[i]);
+        this.dropMarker({ 'lat': data.results.items[i].position[0], 'lng': data.results.items[i].position[1] }, data.results.items[i]);
       }
     }, error => {
       console.error(error);
@@ -86,10 +106,10 @@ export class MapComponent implements OnInit {
 
 
   private dropMarker(coordinates: any, data: any) {
-    let marker = new H.map.Marker(coordinates);
-    marker.setData("<p>" + data.title + "<br>" + data.vicinity + "</p>");
+    const marker = new H.map.Marker(coordinates);
+    marker.setData('<p>' + data.title + '<br>' + data.vicinity + '</p>');
     marker.addEventListener('tap', event => {
-      let bubble = new H.ui.InfoBubble(event.target.getPosition(), {
+      const bubble = new H.ui.InfoBubble(event.target.getPosition(), {
         content: event.target.getData()
       });
       this.ui.addBubble(bubble);
@@ -98,8 +118,9 @@ export class MapComponent implements OnInit {
   }
 
   displayUserMarker() {
-    let svgMarkup = '<svg aria-hidden="true" data-prefix="fas" width="30" height="30" data-icon="map-marker-alt" class="svg-inline--fa fa-map-marker-alt fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>';
-    let svgIcon = new H.map.Icon(svgMarkup),
+    // tslint:disable-next-line:max-line-length
+    const svgMarkup = '<svg aria-hidden="true" data-prefix="fas" width="30" height="30" data-icon="map-marker-alt" class="svg-inline--fa fa-map-marker-alt fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>';
+    const svgIcon = new H.map.Icon(svgMarkup),
       coords = {
         lat: this.lat,
         lng: this.lng

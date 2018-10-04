@@ -68,8 +68,6 @@ export class MessagingService {
       });
   }
 }
-<<<<<<< HEAD
-=======
 
 /*
 // Handle incoming messages. Called when:
@@ -92,4 +90,3 @@ return self.registration.showNotification(notificationTitle,
 });
 
 */
->>>>>>> 97cf404016fa4768b99326eb097c8cd4157190b2

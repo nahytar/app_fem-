@@ -4,8 +4,4 @@ export interface User {
   photoUrl?: string;
   phone?: string;
   mail?: string;
-  latitud?: string;
-  longitud?: string;
-  nombreContact?: string;
-  contacto?: string;
 }
