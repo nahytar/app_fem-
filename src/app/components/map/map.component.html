@@ -1,6 +1,10 @@
-<div #map [style.width]="width" [style.height]="height" style="float: left"></div>
+<div #map style="float: left; width: 50%; height: 530px"></div>
 <ol style="float: left; background-color: #FFF; width: 35%; min-height: 530px; margin-left: 20px; margin-top: 0">
     <li *ngFor="let direction of directions">
         <p [innerHTML]="direction.instruction"></p>
     </li>
 </ol>
+<div style="padding: 10px 0">
+    <input type="text" placeholder="" [(ngModel)]="query" />
+    <button (click)="places(query)">Buscar</button>
+</div>

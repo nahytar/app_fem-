@@ -11,6 +11,7 @@ export class MessagingService {
 
   currentMessage = new BehaviorSubject(null);
 
+
   constructor(
     private angularFireDB: AngularFireDatabase,
     private angularFireAuth: AngularFireAuth,
@@ -67,3 +68,28 @@ export class MessagingService {
       });
   }
 }
+<<<<<<< HEAD
+=======
+
+/*
+// Handle incoming messages. Called when:
+// - a message is received while the app has focus
+// - the user clicks on an app notification created by a service worker
+//   `messaging.setBackgroundMessageHandler` handler.
+messaging.onMessage(function(payload) {
+  console.log('Message received. ', payload);
+  var notificationTitle = 'Has recibido una notificación';
+  var notificationOptions = {
+    body: 'Esta es una notificación',
+    icon: 'src/assets/img/lotus-nav.png'
+  // ...
+};
+
+
+
+return self.registration.showNotification(notificationTitle,
+  notificationOptions);
+});
+
+*/
+>>>>>>> 97cf404016fa4768b99326eb097c8cd4157190b2
