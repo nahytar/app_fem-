@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MessagingService } from "src/app/service/messaging.service";
+import { DatabaseService } from '../../service/database.service';
+
 
 @Component({
   selector: 'app-notifications',
@@ -8,15 +9,15 @@ import { MessagingService } from "src/app/service/messaging.service";
 })
 export class NotificationsComponent implements OnInit {
 
-  message;
+ usuario: any;
 
-  constructor(private messagingService: MessagingService) { }
+  constructor(public database: DatabaseService) { }
 
   ngOnInit() {
-    const userId = 'user';
-    this.messagingService.requestPermission(userId)
-    this.messagingService.receiveMessage()
-    this.message = this.messagingService.currentMessage
+    this.database.getData().subscribe(usuario => {
+      this.usuario = usuario;
+      console.log(this.usuario);
+    });
   }
 }
 

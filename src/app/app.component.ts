@@ -1,6 +1,7 @@
 
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MessagingService } from "./service/messaging.service";
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 
 @Component({
@@ -10,11 +11,15 @@ import { MessagingService } from "./service/messaging.service";
 })
 export class AppComponent implements OnInit {
   title = 'app-fem';
+  message;
 
-
-  constructor() { }
+  constructor(private messagingService: MessagingService, private afs: AngularFirestore) { }
 
 
   ngOnInit() {
+    const userId = 'user';
+    this.messagingService.requestPermission(userId)
+    this.messagingService.receiveMessage()
+    this.message = this.messagingService.currentMessage
   }
 }
