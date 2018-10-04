@@ -62,6 +62,10 @@ const appRoutes: Routes = [
   {
     path: 'Perfil/Red-familiar',
     component: RegisterRedComponent
+  },
+  {
+    path: 'Map',
+    component: MapComponent
   }
 ];
 @NgModule({

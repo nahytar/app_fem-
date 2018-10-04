@@ -40,4 +40,10 @@ export class DatabaseService {
   addPublish(usuario: User) {
     this.usersCollection.add(usuario);
   }
+
+  editContac(usuario: User) {
+    this.userDoc = this.afs.doc(`users/${usuario.userid}`);
+    this.userDoc.update(usuario);
+  }
+
 }
