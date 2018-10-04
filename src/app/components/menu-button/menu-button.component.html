@@ -1,7 +1,24 @@
-<button type="button" (click)="onLogout()"><mat-icon>logout</mat-icon></button>
+<section>
+  <nav>
+    <img src="../../../assets/img/lotus-nav.png" alt="logoNav">
+    <h3>SORORIDAPP</h3>
+    <i class="far fa-user" routerLink='/Perfil'></i>
+    <i class="fas fa-question"></i>
+    <i class="fas fa-sign-out-alt" (click)="onLogout()"></i>
+  </nav>
 
-<button routerLink='/Perfil' >
-  <mat-icon>profile</mat-icon>
- </button>
+  <h3>¡Activa tu alarma!</h3>
+  <button type="button">
+    Insegura
+  </button>
 
- <button routerLink='/Map'>mapa</button>
+  <button type="button">
+    En Peligro
+  </button>
+
+  <button routerLink='/Map'>Ver zona segura
+  <span>
+    <i class="fas fa-map-marker-alt"></i>
+  </span>
+  </button>
+</section>
