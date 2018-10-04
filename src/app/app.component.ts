@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
-declare var H: any;
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MessagingService } from "./service/messaging.service";
 
 
@@ -15,8 +14,6 @@ export class AppComponent implements OnInit {
 
   constructor() { }
 
-  public query: string;
-  message;
 
   ngOnInit() {
   }
