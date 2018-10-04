@@ -16,9 +16,9 @@ export class MessagingService {
     private angularFireAuth: AngularFireAuth,
     private angularFireMessaging: AngularFireMessaging) {
     this.angularFireMessaging.messaging.subscribe(
-      (_messaging) => {
-        _messaging.onMessage = _messaging.onMessage.bind(_messaging);
-        _messaging.onTokenRefresh = _messaging.onTokenRefresh.bind(_messaging);
+      (messaging) => {
+        messaging.onMessage = messaging.onMessage.bind(messaging);
+        messaging.onTokenRefresh = messaging.onTokenRefresh.bind(messaging);
       }
     )
   }
@@ -51,7 +51,7 @@ export class MessagingService {
         this.updateToken(userId, token);
       },
       (err) => {
-        console.error('Unable to get permission to notify.', err);
+        console.error('No has permitido notificaciones.', err);
       }
     );
   }
@@ -62,7 +62,7 @@ export class MessagingService {
   receiveMessage() {
     this.angularFireMessaging.messages.subscribe(
       (payload) => {
-        console.log("new message received. ", payload);
+        console.log("Has recibido una nueva notificación ", payload);
         this.currentMessage.next(payload);
       })
   }
