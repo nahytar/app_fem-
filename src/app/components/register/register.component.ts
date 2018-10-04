@@ -31,10 +31,8 @@ export class RegisterComponent implements OnInit {
     mail: '',
     latitud: '',
     longitud: '',
-    agenda: {
-      nombre: '',
-      contacto: ''
-    }
+    nombreContact: '',
+    contacto: ''
   };
 
   constructor(

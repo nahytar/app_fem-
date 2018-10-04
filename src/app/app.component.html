@@ -1,3 +1,8 @@
-<router-outlet> 
-  </router-outlet>
- 
+<div style="padding: 10px 0">
+    <input type="text" placeholder="Search places..." [(ngModel)]="query" />
+    <button (click)="map.places(query)">Search</button>
+</div>
+<app-map #map appId="wPJPKvnkW9RvWEhqFwQf" appCode="nOWzrH23UUts9L7nlypBpA" lat="-33.41913" lng="-70.64185" width="75%"
+    height="530px"></app-map>
+
+<router-outlet></router-outlet>
