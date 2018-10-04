@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+
+declare var H: any;
 import { MessagingService } from "./service/messaging.service";
 
 @Component({
@@ -6,11 +8,14 @@ import { MessagingService } from "./service/messaging.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app-fem';
+  public query: string;
   message;
 
-  constructor(private messagingService: MessagingService) { }
+  constructor(private messagingService: MessagingService) {
+    this.query = "";
+  }
 
   ngOnInit() {
     const userId = 'user001';
