@@ -40,4 +40,9 @@ export class DatabaseService {
   addPublish(usuario: User) {
     this.usersCollection.add(usuario);
   }
+
+  editContac(usuario: User) {
+    this.usersCollection.ref.doc(usuario.userid).update(usuario);
+  }
+
 }

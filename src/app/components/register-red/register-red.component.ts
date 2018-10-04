@@ -28,10 +28,9 @@ export class RegisterRedComponent implements OnInit {
     mail: '',
     latitud: '',
     longitud: '',
-    agenda: {
-      nombre: '',
-      contacto: ''
-    }  };
+    nombreContact: '',
+    contacto: ''
+    };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,10 +48,10 @@ export class RegisterRedComponent implements OnInit {
   addContac() {
     this.afAuth.authState.subscribe(user => {
       if (user) {
-        this.dataservice.addPublish(this.usuario);
-        this.usuario.agenda.nombre = '';
-        this.usuario.agenda.contacto = '';
+        this.usuario.nombreContact = '';
+        this.usuario.contacto = '';
         this.router.navigate(['/Perfil']);
+        this.dataservice.editContac(this.usuario);
       }
     });
   }
