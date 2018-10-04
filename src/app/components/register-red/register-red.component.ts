@@ -31,6 +31,8 @@ export class RegisterRedComponent implements OnInit {
     nombreContact: '',
     contacto: ''
     };
+  edit: User;
+  isEdit: Boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -54,5 +56,20 @@ export class RegisterRedComponent implements OnInit {
         this.dataservice.editContac(this.usuario);
       }
     });
+  }
+
+  editNow(event, usuario: User) {
+    this.isEdit = true;
+    this.edit = usuario;
+  }
+
+  updateEdit(usuario: User) {
+    this.dataservice.editContac(usuario);
+    this.clear();
+  }
+
+  clear() {
+    this.isEdit = false;
+    this.edit = null;
   }
 }
