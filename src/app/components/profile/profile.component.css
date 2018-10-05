@@ -40,13 +40,14 @@ i{
 
 .blanco{
   background-color: #FFFFFF;
-  height: 35vh;
+  height: 30vh;
   text-align: center;
 }
 
 .rosa{
   background-color: #D6AED1;
-  height: 40vh;
+  height: 45vh;
+  overflow: hidden;
 }
 
 .blanco p{
@@ -61,14 +62,56 @@ i{
 
 h5{
   color: rgba(128, 2, 110, 0.32);
-  font-weight: 700;
+  font-weight: 900;
   position: absolute;
   bottom: 0;
-  left: 2%;
+  left: 6%;
 }
 
 .fa-plus{
   position: absolute;
-  bottom: -2%;
-  right: 1%;
+  bottom: -11%;
+  right: 5%;
+  color: #FFFFFF;
+  padding: 3%;
+  background-color: #80026E;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.img{
+  background: #D6AED1;
+  height: 20vh;
+  width: 20vh;
+  border-radius: 50%;
+  z-index: 1;
+  position: absolute;
+  bottom: -34%;
+  right: 33%;
+}
+
+.row{
+  padding: 0%;
+  display: contents;
+}
+
+.perfil{
+  margin: 10%;
+}
+
+.rosa p{
+  margin: 1%;
+}
+
+.agenda{
+  padding: 3%;
+}
+
+hr{
+  margin: 0%;
+}
+
+.fa-arrow-left{
+  float: left;
+  color: #FFFFFF;
 }

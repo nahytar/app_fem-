@@ -6,35 +6,39 @@
     <i class="fas fa-question"></i>
     <i class="far fa-user" routerLink='/Perfil'></i>
   </nav>
-  <div class="row">
-    <div class="img">
-      <!-- <img src="" alt=""> -->
-    </div>
+  <div class="row container-fluid">
     <div class="col-12 morado">
+      <i class="fas fa-arrow-left" routerLink='/Home'></i>
+      <div class="img">
+        <!-- <img src="" alt=""> -->
+      </div>
     </div>
     <div class="col-12 blanco">
-      <h6>
-        {{item.name}}
-      </h6>
-      <p>
-        {{item.phone}}
-      </p>
-      <p>
-        {{item.mail}}
-      </p>
+      <div class="perfil">
+        <h6>
+          {{item.name}}
+        </h6>
+        <p>
+          {{item.phone}}
+        </p>
+        <p>
+          {{item.mail}}
+        </p>
+      </div>
       <h5>RED FAMILIAR</h5>
+      <i class="fas fa-plus" routerLink='Red-familiar'></i>
     </div>
-        <i class="fas fa-plus" routerLink='Red-familiar'></i>
 
     <div class="col-12 rosa">
       <div class="agenda" *ngFor='let redItem of redItem'>
-      <p>
-        {{redItem.contac}}
-      </p>
-      <p>
-        {{redItem.emailContac}}
-      </p>
-    </div>
+        <p>
+          {{redItem.contac}}
+        </p>
+        <p>
+          {{redItem.emailContac}}
+        </p>
+        <hr>
+      </div>
     </div>
   </div>
-</section>  
+</section>
