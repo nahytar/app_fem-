@@ -1,4 +1,4 @@
-<section>
+<section class="container-fluid">
   <nav>
     <img src="../../../assets/img/lotus-nav.png" alt="logoNav">
     <h6>SORORIDAPP</h6>
@@ -6,17 +6,22 @@
     <i class="fas fa-question"></i>
     <i class="far fa-user" routerLink='/Perfil'></i>
   </nav>
-<div>
+<div class="alarma">
   <h3>¡Activa tu alarma!</h3>
-  <button type="button">
+  <div class="row">
+  <button type="button" class="col-6 insegura">
     Insegura
   </button>
 
-  <button type="button">
-    En Peligro
+  <button type="button" class="col-6 peligro">
+    En<br> Peligro
   </button>
-
-  <button routerLink='/Map'>Ver zona segura
+</div>
+<div class="row">
+  <p class="col-6">contacta a la red de <strong> sororidapp </strong></p>
+  <p class="col-6">contacta a la red de <strong> sororidapp</strong> y <strong>Red Familiar</strong></p>
+</div>
+  <button routerLink='/Map' class="marker">Ver zona segura
   <span>
     <i class="fas fa-map-marker-alt"></i>
   </span>

@@ -1,23 +1,40 @@
-<section >
-   <p>
-    {{item.name}}
-  </p>
-  <p>
-    {{item.phone}}
-  </p>
-  <p>
-    {{item.mail}}
-  </p>
+<section class="container-fluid">
+  <nav>
+    <img class="logo" src="../../../assets/img/lotus-nav.png" alt="logoNav">
+    <h6>SORORIDAPP</h6>
+    <i class="fas fa-sign-out-alt" (click)="onLogout()"></i>
+    <i class="fas fa-question"></i>
+    <i class="far fa-user" routerLink='/Perfil'></i>
+  </nav>
+  <div class="row">
+    <div class="img">
+      <!-- <img src="" alt=""> -->
+    </div>
+    <div class="col-12 morado">
+    </div>
+    <div class="col-12 blanco">
+      <h6>
+        {{item.name}}
+      </h6>
+      <p>
+        {{item.phone}}
+      </p>
+      <p>
+        {{item.mail}}
+      </p>
+      <h5>RED FAMILIAR</h5>
+    </div>
+        <i class="fas fa-plus" routerLink='Red-familiar'></i>
+
+    <div class="col-12 rosa">
+      <div class="agenda" *ngFor='let redItem of redItem'>
+      <p>
+        {{redItem.contac}}
+      </p>
+      <p>
+        {{redItem.emailContac}}
+      </p>
+    </div>
+    </div>
+  </div>
 </section>  
-  <button routerLink='Red-familiar'>Agregar</button>
-  <div *ngFor = 'let redItem of redItem'>
-  <p>
-    {{redItem.contac}}
-  </p>
-  <p>
-    {{redItem.emailContac}}
-  </p>
-</div>
-
-
-
