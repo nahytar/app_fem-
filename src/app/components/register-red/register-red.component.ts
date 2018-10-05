@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms/src/directives/ng_form';
+import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -59,5 +59,14 @@ export class RegisterRedComponent implements OnInit {
         this.dataservice.addAgenda(this.red);
       }
     });
+  }
+
+  onLogout() {
+    this.authService.logOut()
+      .then(() => {
+        this.router.navigate(['/Login']);
+      })
+      .catch(() => {
+      });
   }
 }
