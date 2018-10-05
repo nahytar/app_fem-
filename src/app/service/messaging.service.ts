@@ -68,14 +68,13 @@ export class MessagingService {
       });
   }
 }
-<<<<<<< HEAD
-=======
 
 /*
 // Handle incoming messages. Called when:
 // - a message is received while the app has focus
 // - the user clicks on an app notification created by a service worker
 //   `messaging.setBackgroundMessageHandler` handler.
+
 messaging.onMessage(function(payload) {
   console.log('Message received. ', payload);
   var notificationTitle = 'Has recibido una notificación';
@@ -90,6 +89,4 @@ messaging.onMessage(function(payload) {
 return self.registration.showNotification(notificationTitle,
   notificationOptions);
 });
-
 */
->>>>>>> 97cf404016fa4768b99326eb097c8cd4157190b2
