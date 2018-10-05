@@ -37,6 +37,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterRedComponent } from './components/register-red/register-red.component';
 import { MapComponent } from './components/map/map.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { GuiaComponent } from './components/guia/guia.component';
 
 const appRoutes: Routes = [
   {
@@ -64,6 +65,10 @@ const appRoutes: Routes = [
     component: RegisterRedComponent
   },
   {
+    path: 'Guia',
+    component: GuiaComponent
+  },
+  {
     path: 'Map',
     component: MapComponent,
     data: environment.hereConfig
@@ -78,7 +83,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     RegisterRedComponent,
     MapComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    GuiaComponent
   ],
   imports: [
     BrowserModule,

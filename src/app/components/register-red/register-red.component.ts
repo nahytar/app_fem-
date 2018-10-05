@@ -60,4 +60,13 @@ export class RegisterRedComponent implements OnInit {
       }
     });
   }
+
+  onLogout() {
+    this.authService.logOut()
+      .then(() => {
+        this.router.navigate(['/Login']);
+      })
+      .catch(() => {
+      });
+  }
 }

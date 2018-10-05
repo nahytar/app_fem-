@@ -63,8 +63,8 @@ export class MapComponent implements OnInit {
     this.route
       .data
       .subscribe(data => {
-        this.appId = data.appId
-        this.appCode = data.appCode
+        this.appId = data.appId;
+        this.appCode = data.appCode;
         this.platform = new H.service.Platform({
           'app_id': this.appId,
           'app_code': this.appCode
@@ -132,5 +132,13 @@ export class MapComponent implements OnInit {
         icon: svgIcon
       });
     this.map.addObject(marker);
+  }
+  onLogout() {
+    this.authService.logOut()
+      .then(() => {
+        this.router.navigate(['/Login']);
+      })
+      .catch(() => {
+      });
   }
 }
