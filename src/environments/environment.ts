@@ -11,6 +11,10 @@ export const environment = {
     projectId: "super-women-app",
     storageBucket: "super-women-app.appspot.com",
     messagingSenderId: "780930965846"
+  },
+  hereConfig: {
+    appId:"wPJPKvnkW9RvWEhqFwQf", 
+    appCode:"nOWzrH23UUts9L7nlypBpA"
   }
 };
 

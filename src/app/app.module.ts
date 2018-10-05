@@ -65,7 +65,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'Map',
-    component: MapComponent
+    component: MapComponent,
+    data: environment.hereConfig
   }
 ];
 @NgModule({
