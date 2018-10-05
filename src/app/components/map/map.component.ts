@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -27,10 +27,8 @@ export class MapComponent implements OnInit {
   public mapElement: ElementRef;
   search: any;
 
-  @Input()
   public appId: any;
 
-  @Input()
   public appCode: any;
 
   @Input()
@@ -50,8 +48,6 @@ export class MapComponent implements OnInit {
 
   private ui: any;
   public directions: any;
-  // lat: any;
-  // lng: any;
 
   public constructor(
     private authService: AuthService,
@@ -59,23 +55,30 @@ export class MapComponent implements OnInit {
     private afs: AngularFirestore,
     private dataservice: DatabaseService,
     private storage: AngularFireStorage,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private route: ActivatedRoute
   ) { }
 
   public ngOnInit() {
-    this.platform = new H.service.Platform({
-      'app_id': this.appId,
-      'app_code': this.appCode
-    });
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.lat = position.coords.latitude;
-        this.lng = position.coords.longitude;
-        this.showPosition();
+    this.route
+      .data
+      .subscribe(data => {
+        this.appId = data.appId
+        this.appCode = data.appCode
+        this.platform = new H.service.Platform({
+          'app_id': this.appId,
+          'app_code': this.appCode
+        });
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            this.lat = position.coords.latitude;
+            this.lng = position.coords.longitude;
+            this.showPosition();
+          });
+          this.search = new H.places.Search(this.platform.getPlacesService());
+          this.directions = [];
+        }
       });
-      this.search = new H.places.Search(this.platform.getPlacesService());
-      this.directions = [];
-    }
   }
 
   showPosition() {
