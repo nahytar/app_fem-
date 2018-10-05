@@ -45,6 +45,7 @@ export class MapComponent implements OnInit {
 
   private platform: any;
   private map: any;
+  public query: any;
 
   private ui: any;
   public directions: any;
@@ -67,7 +68,9 @@ export class MapComponent implements OnInit {
         this.appCode = data.appCode
         this.platform = new H.service.Platform({
           'app_id': this.appId,
-          'app_code': this.appCode
+          'app_code': this.appCode,
+          useCIT: true,
+          useHTTPS: true
         });
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position) => {
