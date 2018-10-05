@@ -16,10 +16,8 @@ export class ProfileComponent implements OnInit {
   item: any;
   redItem: any;
 
-  constructor(public database: DatabaseService,
-    private authservice: AuthService,
-    private router: Router
-  ) { }
+  constructor(public database: DatabaseService, public authservice: AuthService, private router: Router) {
+  }
 
   ngOnInit() {
     this.database.getData().subscribe(usuario => {

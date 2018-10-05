@@ -3,18 +3,18 @@
     <img src="../../../assets/img/lotus-nav.png" alt="logoNav">
     <h6>SORORIDAPP</h6>
     <i class="fas fa-sign-out-alt" (click)="onLogout()"></i>
-    <i class="fas fa-question"></i>
+    <i class="fas fa-question" routerLink='/Guia'></i>
     <i class="far fa-user" routerLink='/Perfil'></i>
   </nav>
 <div class="alarma">
   <h3>¡Activa tu alarma!</h3>
   <div class="row">
-  <button type="button" class="col-6 insegura">
+  <button type="button" class="col-6 insegura" data-toggle="modal" data-target="#modal" >
     Insegura
   </button>
   <!-- (click)='onNosafe()' -->
 
-  <button type="button" class="col-6 peligro">
+  <button type="button" class="col-6 peligro" data-toggle="modal" data-target="#modal">
     En<br> Peligro
   </button>
   <!-- (click)='onDanger()' -->
@@ -28,5 +28,24 @@
     <i class="fas fa-map-marker-alt"></i>
   </span>
   </button>
-</div>
+
 </section>
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title" id="exampleModalCenterTitle"></p>
+      </div>
+      <div class="modal-body">
+        <p>
+          Has recibido una alerta de Usuaria1.
+          <br>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" routerLink='/Map'>Aceptar</button>
+        <button type="submit">Cancelar</button>
+    </div>
+  </div>
+</div>
+</div>
