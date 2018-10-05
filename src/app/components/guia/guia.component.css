@@ -3,7 +3,6 @@ section {
   top: 0;
   height: 100vh;
   padding: 0%;
-  background-color: #FFFFFF;
 }
 
 nav{
@@ -34,25 +33,11 @@ i{
   margin-bottom: 3%;
 }
 
-.conten{
-  margin: 5%;
-  background-color: rgba(214, 174, 209, 0.47);
-  padding: 5%;
-  height: 90vh;
-  text-align: center;
+div{
+  height: 70vh;
+  margin-top: 10%;
 }
 
-button{
-  background-color: transparent;
-  color: #B2429D;
-  border: none;
-}
-
-.fa-times-circle{
-  float: left;
-  color: #3D3A3A;
-  position: absolute;
-  top: 7%;
-  left: 2%;
-  font-size: 30px;
+img{
+  height: 70vh;
 }

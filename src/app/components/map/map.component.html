@@ -1,10 +1,24 @@
-<div #map style="float: left; width: 50%; height: 530px"></div>
-<ol style="float: left; background-color: #FFF; width: 35%; min-height: 530px; margin-left: 20px; margin-top: 0">
-    <li *ngFor="let direction of directions">
-        <p [innerHTML]="direction.instruction"></p>
-    </li>
-</ol>
-<div style="padding: 10px 0">
-    <input type="text" placeholder="" [(ngModel)]="query" />
-    <button (click)="places(query)">Buscar</button>
-</div>
+<section class="container-fluid">
+    <nav>
+        <img class="logo" src="../../../assets/img/lotus-nav.png" alt="logoNav">
+        <h6>ZONA SEGURA</h6>
+        <i class="fas fa-sign-out-alt" (click)="onLogout()"></i>
+        <i class="fas fa-question" routerLink='/Guia'></i>
+        <i class="far fa-user" routerLink='/Perfil'></i>
+    </nav>
+    <div class="conten">
+            <i class="far fa-times-circle" routerLink='/Home'></i>
+        <div #map style="width: 100%; height: 85%"></div>
+        <ol style="width: 90%; height: 12vh; padding: 0%; margin: 0%;">
+            <li *ngFor="let direction of directions">
+                <p [innerHTML]="direction.instruction"></p>
+            </li>
+        </ol>
+        <div style="position: absolute; top: 15%; width: 80%">
+            <input type="text" placeholder="" [(ngModel)]="query" />
+
+            <button (click)="places(query)">
+                <i class="fas fa-search" ></i></button>
+        </div>
+    </div>
+</section>

@@ -14,10 +14,10 @@ export class NotificationsComponent implements OnInit {
   constructor(public database: DatabaseService) { }
 
   ngOnInit() {
-    this.database.getData().subscribe(usuario => {
-      this.usuario = usuario;
-      console.log(this.usuario);
-    });
+    // this.database.getData().subscribe(usuario => {
+    //   this.usuario = usuario;
+    //   console.log(this.usuario);
+    // });
   }
 }
 

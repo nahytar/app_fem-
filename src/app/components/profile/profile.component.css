@@ -115,3 +115,7 @@ hr{
   float: left;
   color: #FFFFFF;
 }
+
+.modal-backdrop{
+  position: inherit;
+}

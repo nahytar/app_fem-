@@ -3,17 +3,17 @@
     <img src="../../../assets/img/lotus-nav.png" alt="logoNav">
     <h6>SORORIDAPP</h6>
     <i class="fas fa-sign-out-alt" (click)="onLogout()"></i>
-    <i class="fas fa-question"></i>
+    <i class="fas fa-question" routerLink='/Guia'></i>
     <i class="far fa-user" routerLink='/Perfil'></i>
   </nav>
 <div class="alarma">
   <h3>¡Activa tu alarma!</h3>
   <div class="row">
-  <button type="button" class="col-6 insegura" (click)='onNosafe()'>
+  <button type="button" class="col-6 insegura" >
     Insegura
   </button>
 
-  <button type="button" class="col-6 peligro" (click)='onDanger()'>
+  <button type="button" class="col-6 peligro">
     En<br> Peligro
   </button>
 </div>
