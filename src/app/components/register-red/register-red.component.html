@@ -1,8 +1,19 @@
-<button mat-button type="button"  routerLink='/Perfil'>Volver</button>
-  <form (ngSubmit)="addContac()" [formGroup]="registerRedForm"> 
-    <div>
-        <input formControlName="contac" type="text" placeholder="Nombre contacto" />
-        <input formControlName="emailContac" type="text" placeholder="Email contacto" />
-    <button mat-button type="submit" >Guardar</button>
+<section class="container-fluid">
+  <nav>
+    <img class="logo" src="../../../assets/img/lotus-nav.png" alt="logoNav">
+    <h6>SORORIDAPP</h6>
+    <i class="fas fa-sign-out-alt" (click)="onLogout()"></i>
+    <i class="fas fa-question"></i>
+    <i class="far fa-user" routerLink='/Perfil'></i>
+  </nav>
+  <form (ngSubmit)="addContac()" [formGroup]="registerRedForm">
+    <div class="save">
+      <div class="input">
+      <input formControlName="contac" type="text" placeholder="Nombre contacto" />
+      <input formControlName="emailContac" type="text" placeholder="Email contacto" />
+    </div>
+      <button mat-button type="submit">AGREGAR</button>
+      <i class="fas fa-arrow-left" routerLink='/Perfil'></i>
     </div>
   </form>
+</section>
