@@ -70,7 +70,8 @@ export class MapComponent implements OnInit {
           'app_id': this.appId,
           'app_code': this.appCode,
           useCIT: true,
-          useHTTPS: true
+          useHTTPS: true,
+          crossOrigin: true
         });
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position) => {
