@@ -13,8 +13,8 @@ export const environment = {
     messagingSenderId: "780930965846"
   },
   hereConfig: {
-    appId:"wPJPKvnkW9RvWEhqFwQf", 
-    appCode:"nOWzrH23UUts9L7nlypBpA"
+    appId:"rjiAx1oGZjDwZ3KVdpAR", 
+    appCode:"qPO2lK-AsQLy0C33BJhwPg"
   }
 };
 
