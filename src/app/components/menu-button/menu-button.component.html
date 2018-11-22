@@ -6,29 +6,26 @@
     <i class="fas fa-question" routerLink='/Guia'></i>
     <i class="far fa-user" routerLink='/Perfil'></i>
   </nav>
-<div class="alarma">
-  <h3>¡Activa tu alarma!</h3>
-  <div class="row">
-  <button type="button" class="col-6 insegura" data-toggle="modal" data-target="#modal" >
-    Insegura
-  </button>
-  <!-- (click)='onNosafe()' -->
+  <div class="alarma">
+    <h3>¡Activa tu alarma!</h3>
+    <div class="row">
+      <button type="button" class="col-6 insegura" data-toggle="modal" data-target="#modal">Insegura</button>
+      <!-- (click)='onNosafe()' -->
 
-  <button type="button" class="col-6 peligro" data-toggle="modal" data-target="#modal">
-    En<br> Peligro
-  </button>
-  <!-- (click)='onDanger()' -->
-</div>
-<div class="row">
-  <p class="col-6">contacta a la red de <strong> sororidapp </strong></p>
-  <p class="col-6">contacta a la red de <strong> sororidapp</strong> y <strong>Red Familiar</strong></p>
-</div>
-  <button routerLink='/Map' class="marker">Ver zona segura
-  <span>
-    <i class="fas fa-map-marker-alt"></i>
-  </span>
-  </button>
+      <button type="button" class="col-6 peligro" data-toggle="modal" data-target="#modal">En<br>Peligro</button>
+      <!-- (click)='onDanger()' -->
 
+    </div>
+    <div class="row">
+      <p class="col-6">contacta a la red de <strong> sororidapp </strong></p>
+      <p class="col-6">contacta a la red de <strong> sororidapp</strong> y <strong>Red Familiar</strong></p>
+    </div>
+    <button routerLink='/Map' class="marker">Ver zona segura
+      <span>
+        <i class="fas fa-map-marker-alt"></i>
+      </span>
+    </button>
+  </div>
 </section>
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -45,7 +42,7 @@
       <div class="modal-footer">
         <button type="button" routerLink='/Map'>Aceptar</button>
         <button type="submit">Cancelar</button>
+      </div>
     </div>
   </div>
-</div>
 </div>

@@ -27,31 +27,31 @@ export class DatabaseService {
   coor: Observable<Coordenadas[]>;
 
 
-  constructor( private afs: AngularFirestore, private authService: AuthService) {
-  this.usersCollection = afs.collection<User>('users');
-  this.user = this.usersCollection.snapshotChanges().pipe(
+  constructor(private afs: AngularFirestore, private authService: AuthService) {
+    this.usersCollection = afs.collection<User>('users');
+    this.user = this.usersCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as User;
         const id = a.payload.doc.id;
         return { id, ...data };
       }))
     );
-  this.redCollection = afs.collection<Red>('red');
-  this.red = this.redCollection.snapshotChanges().pipe(
-    map(actions => actions.map(a => {
-      const data = a.payload.doc.data() as Red;
-      const id = a.payload.doc.id;
-      return { id, ...data };
-    }))
-  );
-  this.coorCollection = afs.collection<Coordenadas>('coordenadas');
-  this.coor = this.coorCollection.snapshotChanges().pipe(
-    map(actions => actions.map (a => {
-      const data = a.payload.doc.data() as Coordenadas;
-      const id = a.payload.doc.id;
-      return { id, ...data };
-    }))
-  );
+    this.redCollection = afs.collection<Red>('red');
+    this.red = this.redCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Red;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+    this.coorCollection = afs.collection<Coordenadas>('coordenadas');
+    this.coor = this.coorCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Coordenadas;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
 
   getData() {

@@ -7,7 +7,7 @@
         <i class="far fa-user" routerLink='/Perfil'></i>
     </nav>
     <div class="conten">
-            <i class="far fa-times-circle" routerLink='/Home'></i>
+        <i class="far fa-times-circle" routerLink='/Home'></i>
         <div #map style="width: 100%; height: 85%"></div>
         <ol style="width: 90%; height: 12vh; padding: 0%; margin: 0%;">
             <li *ngFor="let direction of directions">
@@ -18,7 +18,7 @@
             <input type="text" placeholder="" [(ngModel)]="query" />
 
             <button (click)="places(query)">
-                <i class="fas fa-search" ></i></button>
+                <i class="fas fa-search"></i></button>
         </div>
     </div>
 </section>

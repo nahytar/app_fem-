@@ -96,7 +96,7 @@ h5{
 }
 
 .perfil{
-  margin: 10%;
+  margin: 15%;
 }
 
 .rosa p{
@@ -118,4 +118,12 @@ hr{
 
 .modal-backdrop{
   position: inherit;
+}
+
+.img img{
+  background-position: center;
+  background-size: contain;
+  width: 20vh;
+  border-radius: 50%;
+  height: 20vh;
 }
